@@ -9,8 +9,8 @@ void main() async {
   await dotenv.load(fileName: ".env");
 
   await Supabase.initialize(
-    url: dotenv.env['SUPABASE_URL'] ?? "",
-    anonKey: dotenv.env['SUPABASE_ANON_KEY'] ?? "",
+    url: dotenv.env['DB_URL'] ?? "",
+    anonKey: dotenv.env['ANON_KEY'] ?? "",
   );
   runApp(const MyApp());
 }
@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       routerConfig: router,
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
